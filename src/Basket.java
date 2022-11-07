@@ -1,8 +1,9 @@
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
-public class Basket {
+public class Basket implements Serializable {
     protected String[] productNames;
     protected int[] prices;
     protected int[] counts;
@@ -56,5 +57,15 @@ public class Basket {
             return new Basket(productNames, prices, counts);
         }
     }
+    public void saveBin(File binFile) throws IOException {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(binFile))) {
+            out.writeObject(this);
+        }
 
+    }
+    public static Basket loadFromBinFile(File binFile) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(binFile))) {
+            return (Basket) in.readObject();
+        }
+    }
 }

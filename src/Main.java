@@ -21,7 +21,7 @@ public class Main {
             int count = Integer.parseInt(parts[1]);
             basket.addToCart(productNum, count);
         }
-        basket.saveTxt(new File("basket.txt"));
+        basket.saveBin(new File("basket.bin"));
 
         basket.printCart();
     }
