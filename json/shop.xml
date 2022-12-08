@@ -1,12 +1,12 @@
 <config>
     <load>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <fileName>basket.json</fileName>
         <format>json</format>
     </load>
 
-    <save <>
-       enabled>false</enabled>
+    <save>
+        <enabled>true</enabled>
         <fileName>basket.json</fileName>
         <format>json</format>
     </save>

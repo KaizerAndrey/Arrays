@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -26,6 +27,16 @@ public class Basket implements Serializable {
     }
 
     public void printCart() {
+        System.out.println("Ваша корзина:");
+        int TotalsumProducts = 0;
+        for (int i = 0; i < productNames.length; i++) {
+            if (counts[i] > 0) {
+                int sumProduct = counts[i] * prices[i];
+                System.out.println(productNames[i] + " " + counts[i] + " шт " + prices[i] + " руб/шт " + sumProduct + " руб в сумме");
+            }
+            TotalsumProducts += prices[i] * counts[i];
+        }
+        System.out.println("Итого: " + TotalsumProducts + " руб");
 
     }
 
